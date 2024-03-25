@@ -17,7 +17,10 @@ if(process.env.NODE_ENV === 'development'){
 app.use(express.json()); // inbuild middlewere for handeling json formate
 app.use(express.static(`${__dirname}/public`)); // inbuild express middlewere for display of static file like html, img etc.
 
-
+app.use((req,res,next)=>{
+  //console.log(req.headers); // this is for seeing all headeres
+  next();
+})
 
 // 3rd Router
 

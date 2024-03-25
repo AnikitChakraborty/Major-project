@@ -8,6 +8,20 @@ if (process.env.NODE_ENV ==='production') {
     console.log('hi clint **********');
 }
 
+const DB = process.env.DATABASE.replace('<PASSWORD>',process.env.DATABASE_PASSWORD);
+mongoose.connect(DB,{
+    useNewUrlParser: true,
+    useCreateIndex:true,
+    useFindAndModify:false,
+    useUnifiedTopology: true   
+}).then(con=>{
+   // console.log(con.connections);
+    console.log('Online DB connection successful! ');
+});  
+
+
+/* FOR MONGODB IN LOCAL HOST
+
 mongoose.connect("mongodb://localhost:27017/natours",{ 
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -17,7 +31,7 @@ mongoose.connect("mongodb://localhost:27017/natours",{
  .then(()=> console.log('DataBase successfully connected' ))
  .catch((err)=>console.log(err));
   
-  
+  */
  
 
 const port = process.env.PORT || 3001;  

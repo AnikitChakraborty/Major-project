@@ -1,14 +1,15 @@
 // we have created an AppError class which extend globel error class
-class AppError extends Error{
-    constructor(message,statusCode){
-       super(message);
-       
-       this.statusCode = statusCode;
-       this.status = `${statusCode}`.startsWith('4') ? 'fail' :'error';
-       this.isOperational = true;
-       
-       Error.captureStackTrace(this,this.constructor);
+class AppError extends Error {
+    constructor(message, statusCode) {
+      super(message);
+  
+      this.statusCode = statusCode;
+      this.status = `${statusCode}`.startsWith('4') ? 'fail' : 'error';
+      this.isOperational = true;
+  
+      Error.captureStackTrace(this, this.constructor);
     }
-
-}
-module.exports = AppError;
+  }
+  
+  module.exports = AppError;
+  
